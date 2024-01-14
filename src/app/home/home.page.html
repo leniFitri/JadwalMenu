@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Jadwal Menu Memasak
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label position="floating">no</ion-label>
+      <ion-input [(ngModel)]="no" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">judul</ion-label>
+      <ion-input [(ngModel)]="judul" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">desk</ion-label>
+      <ion-input [(ngModel)]="desk" type="text"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="saveData()"
+        color="primary" shape="full" expand="block">
+      Add Menu
+      </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+      
+  <ion-list>
+    <ion-list-header>
+      Menu List
+    </ion-list-header>
+    
+    <ion-item lines="inset" *ngFor="let menu of menus">
+      <ion-label>
+        <h5>{{menu.no}} - ({{menu.judul}})<p>{{menu.desk}}</p></h5>
+      </ion-label>
+
+      <ion-content>
+        <ion-button (click)="clearData()">Clear Data</ion-button>
+      </ion-content>
+    </ion-item>
+  </ion-list>
+</ion-content>
